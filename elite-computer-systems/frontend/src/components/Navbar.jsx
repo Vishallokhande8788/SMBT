@@ -2,102 +2,108 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {
-  Laptop,
   Menu,
   X,
   Phone,
-  ArrowUpRight
+  ArrowUpRight,
+  Laptop,
 } from 'lucide-react';
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
+    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Contact', path: '/contact' },
   ];
 
-  const linkStyle = ({ isActive }) =>
-    `text-sm font-semibold transition ${
-      isActive
-        ? 'text-blue-600'
-        : 'text-slate-600 hover:text-blue-600'
-    }`;
+  const closeMenu = () => setMenuOpen(false);
+
+  
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-
-        {/* LOGO */}
+        {/* Logo */}
         <Link
           to="/"
-          onClick={() => setIsOpen(false)}
+          onClick={closeMenu}
           className="flex items-center gap-3"
         >
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#071426] text-blue-400 shadow-lg">
-            <Laptop size={27} />
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#101b35] text-white">
+            <Laptop size={25} />
           </div>
 
           <div>
-            <h2 className="text-lg font-extrabold tracking-tight text-slate-900">
+            <p className="text-lg font-bold leading-tight tracking-tight text-[#101b35]">
               ELITE
-            </h2>
-            <p className="text-[10px] font-bold tracking-[2px] text-slate-500">
-              COMPUTER SYSTEMS
+            </p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Computer Systems
             </p>
           </div>
         </Link>
 
-        {/* DESKTOP NAVIGATION */}
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-9 md:flex">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              className={linkStyle}
+              end={link.path === '/'}
+              className={({ isActive }) =>
+                `text-sm font-medium transition ${
+                  isActive
+                    ? 'text-blue-600'
+                    : 'text-slate-600 hover:text-blue-600'
+                }`
+              }
             >
               {link.name}
             </NavLink>
           ))}
         </nav>
 
-        {/* DESKTOP CALL BUTTON */}
+        {/* Desktop CTA */}
         <a
           href="tel:+919158617272"
-          className="hidden items-center gap-3 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 md:flex"
+          className="hidden items-center gap-2 rounded-full bg-[#101b35] px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 md:inline-flex"
         >
-          <Phone size={17} />
-          Call Now
-          <ArrowUpRight size={16} />
+          <Phone size={16} />
+          Call us
+          <ArrowUpRight size={15} />
         </a>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* Mobile Menu Button */}
         <button
           type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen}
-          className="rounded-lg border border-slate-200 p-2 text-slate-700 md:hidden"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          className="rounded-lg border border-slate-200 p-2 text-[#101b35] md:hidden"
         >
-          {isOpen ? <X size={25} /> : <Menu size={25} />}
+          {menuOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
-
       </div>
 
-      {/* MOBILE NAVIGATION */}
-      {isOpen && (
+      {/* Mobile Navigation */}
+      {menuOpen && (
         <div className="border-t border-slate-200 bg-white px-6 py-5 md:hidden">
-
-          <nav className="flex flex-col gap-5">
+          <nav className="flex flex-col">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={linkStyle}
+                end={link.path === '/'}
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `border-b border-slate-100 py-4 text-sm font-semibold ${
+                    isActive ? 'text-blue-600' : 'text-slate-700'
+                  }`
+                }
               >
                 {link.name}
               </NavLink>
@@ -106,15 +112,13 @@ function Navbar() {
 
           <a
             href="tel:+919158617272"
-            className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-bold text-white"
+            className="mt-5 flex items-center justify-center gap-2 rounded-full bg-[#101b35] px-5 py-4 font-semibold text-white"
           >
-            <Phone size={18} />
-            Call Now
+            <Phone size={17} />
+            Call Elite Computers
           </a>
-
         </div>
       )}
-
     </header>
   );
 }

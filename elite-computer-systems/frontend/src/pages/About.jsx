@@ -1,274 +1,250 @@
 
-import { Link } from 'react-router-dom';
 import {
-  ArrowRight,
   ArrowUpRight,
-  Laptop,
-  Cpu,
   ShieldCheck,
   Wrench,
-  Target,
-  CheckCircle2,
-  Phone
+  Laptop,
+  Settings2,
 } from 'lucide-react';
-
-const expertise = [
-  {
-    icon: Laptop,
-    title: 'Laptop & Desktop Repair',
-    description: 'Repair and troubleshooting support for laptops and desktop computers.'
-  },
-  {
-    icon: Cpu,
-    title: 'Hardware Expertise',
-    description: 'Motherboard diagnosis, hardware replacement and performance upgrades.'
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Device Care',
-    description: 'Careful handling and practical solutions for your technology devices.'
-  }
-];
+import { Link } from 'react-router-dom';
 
 function About() {
+  const capabilities = [
+    {
+      number: '01',
+      title: 'Laptop & Desktop Care',
+      description:
+        'Support for common laptop and desktop hardware and software problems.',
+    },
+    {
+      number: '02',
+      title: 'MacBook & Apple Service',
+      description:
+        'Technical support for MacBook and other Apple computer devices.',
+    },
+    {
+      number: '03',
+      title: 'Board-Level Diagnostics',
+      description:
+        'Diagnosis and repair support for motherboard and chip-level issues.',
+    },
+    {
+      number: '04',
+      title: 'Hardware Upgrades',
+      description:
+        'Upgrade options such as RAM, SSD and other compatible components.',
+    },
+  ];
+
   return (
-    <div className="bg-[#f8fafc] text-slate-900">
+    <div className="bg-white text-slate-900">
 
-      {/* PAGE HERO */}
-      <section className="relative overflow-hidden bg-[#071426] text-white">
-        <div className="absolute -right-20 -top-32 h-80 w-80 rounded-full bg-blue-600/20 blur-3xl" />
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-[#101b35] px-6 py-24 text-white md:py-32">
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6 py-24">
-          <p className="font-bold tracking-[3px] text-blue-400">
-            ABOUT ELITE COMPUTER SYSTEMS
+        <div className="relative mx-auto max-w-7xl">
+          <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-blue-300">
+            About Elite Computers
           </p>
 
-          <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">
-            Technology Solutions
-            <span className="block text-blue-400">
-              You Can Count On.
-            </span>
+          <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+            Better support for
+            <span className="text-blue-400"> everyday technology.</span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            We provide laptop and computer repair services,
-            hardware solutions and technical support to help
-            keep your devices working smoothly.
+          <p className="mt-7 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+            We provide computer and laptop repair services in Hinjawadi,
+            Pune, helping customers find practical solutions for their
+            technology problems.
           </p>
         </div>
       </section>
 
-      {/* ABOUT INTRO */}
-      <section className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 md:grid-cols-2">
+      {/* Introduction */}
+      <section className="px-6 py-20 md:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
 
-        <div className="relative">
-          <div className="rounded-3xl bg-gradient-to-br from-[#071426] to-blue-800 p-10 text-white shadow-2xl sm:p-14">
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white/10 text-blue-300">
-              <Laptop size={48} />
-            </div>
-
-            <p className="mt-10 text-sm font-semibold tracking-[3px] text-blue-300">
-              ELITE COMPUTER SYSTEMS
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+              Who we are
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold leading-snug">
-              Repairing Technology.
-              <br />
-              Supporting People.
+            <h2 className="text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
+              Technology problems need practical solutions.
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-300">
-              Computer repair and technical support for
-              everyday technology needs.
+            <p className="mt-7 leading-8 text-slate-600">
+              Elite Computer Systems focuses on computer and laptop
+              servicing, hardware troubleshooting and technical support.
+              From everyday device issues to more complex hardware
+              problems, our aim is to help customers understand their
+              repair options.
+            </p>
+
+            <p className="mt-5 leading-8 text-slate-600">
+              Our service approach covers laptops, desktops, MacBooks,
+              hardware upgrades and selected software-related support.
+            </p>
+
+            <Link
+              to="/services"
+              className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#101b35] px-7 py-4 font-semibold text-white transition hover:bg-blue-700"
+            >
+              Explore our services
+              <ArrowUpRight size={18} />
+            </Link>
+          </div>
+
+          <div className="relative">
+            <img
+              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=85"
+              alt="Technician working with computer hardware"
+              className="h-[420px] w-full rounded-2xl object-cover md:h-[520px]"
+            />
+
+            <div className="absolute -bottom-6 left-5 max-w-xs rounded-2xl bg-white p-6 shadow-xl md:left-8">
+              <p className="text-sm font-semibold text-blue-600">
+                Our focus
+              </p>
+              <p className="mt-2 text-xl font-semibold leading-snug">
+                Repair. Upgrade. Technical support.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Capabilities */}
+      <section className="bg-[#f5f7fa] px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl">
+
+          <div className="max-w-2xl">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+              What we work on
+            </p>
+
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+              Technical support across your devices.
+            </h2>
+
+            <p className="mt-5 leading-8 text-slate-500">
+              Explore the main areas of computer servicing and hardware
+              support offered by Elite Computers.
             </p>
           </div>
 
-          <div className="absolute -bottom-5 -right-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-xl sm:right-5">
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="text-blue-600" size={30} />
-              <div>
-                <p className="font-bold">Professional Care</p>
-                <p className="text-xs text-slate-500">Device support</p>
-              </div>
-            </div>
-          </div>
-        </div>
+          <div className="mt-14 grid gap-0 border-t border-slate-200 md:grid-cols-2">
+            {capabilities.map((item) => (
+              <div
+                key={item.number}
+                className="border-b border-slate-200 py-9 md:px-8 md:first:pl-0 md:odd:border-r md:odd:pl-0 md:even:pr-0"
+              >
+                <p className="text-sm font-semibold text-blue-600">
+                  {item.number}
+                </p>
 
-        <div>
-          <p className="font-bold tracking-widest text-blue-600">
-            WHO WE ARE
-          </p>
+                <h3 className="mt-5 text-xl font-semibold md:text-2xl">
+                  {item.title}
+                </h3>
 
-          <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-            Your Local Partner for Computer Care
-          </h2>
-
-          <p className="mt-6 leading-8 text-slate-600">
-            Elite Computer Systems is a computer and laptop
-            service business based in Hinjawadi Phase 1, Pune.
-            We help customers with device repairs, hardware
-            upgrades and technical support.
-          </p>
-
-          <p className="mt-4 leading-8 text-slate-600">
-            Whether you need help with a laptop issue, a
-            motherboard problem, an SSD upgrade or data recovery,
-            contact our team to discuss your requirements.
-          </p>
-
-          <div className="mt-8 space-y-4">
-            {[
-              'Laptop and desktop repair',
-              'Hardware diagnosis and upgrades',
-              'MacBook and Apple device servicing',
-              'Data recovery and software support'
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <CheckCircle2 className="shrink-0 text-blue-600" size={21} />
-                <span className="font-medium text-slate-700">{item}</span>
+                <p className="mt-4 max-w-md leading-7 text-slate-500">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
 
-          <Link
-            to="/contact"
-            className="mt-9 inline-flex items-center gap-3 rounded-xl bg-blue-600 px-7 py-4 font-bold text-white transition hover:bg-blue-700"
-          >
-            Contact Our Team <ArrowRight size={18} />
-          </Link>
         </div>
-
       </section>
 
-      {/* OUR EXPERTISE */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      {/* Approach */}
+      <section className="px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl">
 
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <p className="font-bold tracking-widest text-blue-600">
-              WHAT WE OFFER
+          <div className="max-w-2xl">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+              How we approach service
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-              Our Areas of Expertise
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+              Clear communication. Practical support.
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-12 md:grid-cols-3">
+
+            <div>
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                <Settings2 size={26} />
+              </div>
+              <h3 className="text-xl font-semibold">
+                Understand the issue
+              </h3>
+              <p className="mt-4 leading-7 text-slate-500">
+                Start by understanding the device, its symptoms and
+                the problem reported by the customer.
+              </p>
+            </div>
+
+            <div>
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                <Wrench size={26} />
+              </div>
+              <h3 className="text-xl font-semibold">
+                Check repair options
+              </h3>
+              <p className="mt-4 leading-7 text-slate-500">
+                Identify possible repair or upgrade options based on
+                the device and its condition.
+              </p>
+            </div>
+
+            <div>
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                <ShieldCheck size={26} />
+              </div>
+              <h3 className="text-xl font-semibold">
+                Explain the next steps
+              </h3>
+              <p className="mt-4 leading-7 text-slate-500">
+                Help customers understand the available service
+                options before proceeding.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Location */}
+      <section className="bg-[#101b35] px-6 py-20 text-white md:py-24">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 md:flex-row md:items-center">
+
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+              Find us in Pune
+            </p>
+
+            <h2 className="max-w-2xl text-3xl font-semibold leading-tight md:text-5xl">
+              Need help with your computer?
             </h2>
 
-            <p className="mt-4 leading-7 text-slate-500">
-              Practical computer repair and technology
-              support for different device requirements.
+            <p className="mt-5 max-w-xl leading-8 text-slate-300">
+              Get in touch with Elite Computer Systems in Hinjawadi
+              Phase 1 to discuss your device and service requirements.
             </p>
           </div>
 
-          <div className="grid gap-7 md:grid-cols-3">
-            {expertise.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <div
-                  key={item.title}
-                  className="group rounded-2xl border border-slate-200 p-8 transition hover:-translate-y-2 hover:shadow-xl"
-                >
-                  <div className="mb-6 inline-flex rounded-2xl bg-blue-50 p-4 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
-                    <Icon size={30} />
-                  </div>
-
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-
-                  <p className="mt-4 leading-7 text-slate-500">
-                    {item.description}
-                  </p>
-
-                  <Link
-                    to="/services"
-                    className="mt-6 inline-flex items-center gap-2 font-semibold text-blue-600"
-                  >
-                    Explore Services <ArrowUpRight size={17} />
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* OUR APPROACH */}
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2">
-
-        <div>
-          <p className="font-bold tracking-widest text-blue-600">
-            OUR APPROACH
-          </p>
-
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-            Understanding Your Device Comes First.
-          </h2>
-
-          <p className="mt-6 leading-8 text-slate-500">
-            Every device problem is different. We encourage
-            customers to discuss their device issues with our
-            team so that the right service can be identified.
-          </p>
-        </div>
-
-        <div className="space-y-5">
-          <div className="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6">
-            <Target className="shrink-0 text-blue-600" size={30} />
-            <div>
-              <h3 className="font-bold">Understand the Problem</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-500">
-                Learn about the device issue and customer requirements.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6">
-            <Wrench className="shrink-0 text-blue-600" size={30} />
-            <div>
-              <h3 className="font-bold">Identify a Solution</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-500">
-                Discuss suitable repair or upgrade options.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6">
-            <ShieldCheck className="shrink-0 text-blue-600" size={30} />
-            <div>
-              <h3 className="font-bold">Provide Support</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-500">
-                Get assistance for your computer and laptop needs.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      {/* CONTACT CTA */}
-      <section className="bg-[#071426] px-6 py-20 text-center text-white">
-        <h2 className="text-3xl font-bold sm:text-4xl">
-          Need Professional Computer Support?
-        </h2>
-
-        <p className="mx-auto mt-5 max-w-xl leading-7 text-slate-300">
-          Contact Elite Computer Systems in Hinjawadi Phase 1, Pune.
-        </p>
-
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-4 font-bold transition hover:bg-blue-500"
+            className="inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-blue-600 px-8 py-4 font-semibold text-white transition hover:bg-blue-500"
           >
-            Get in Touch <ArrowRight size={18} />
+            Contact our team
+            <ArrowUpRight size={18} />
           </Link>
 
-          <a
-            href="tel:+919158617272"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-4 font-bold transition hover:bg-white/10"
-          >
-            <Phone size={18} /> Call Now
-          </a>
         </div>
       </section>
 

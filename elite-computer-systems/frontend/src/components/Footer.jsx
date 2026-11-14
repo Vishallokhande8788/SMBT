@@ -7,120 +7,127 @@ import {
   MapPin,
   ArrowUpRight,
   MessageCircle,
-  Clock
 } from 'lucide-react';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Our Services', path: '/services' },
-    { name: 'Contact Us', path: '/contact' }
-  ];
-
   const services = [
-    'Laptop Repair',
-    'MacBook Repair',
-    'Chip-Level Repair',
+    'Laptop & Desktop Repair',
+    'MacBook Service',
+    'Motherboard Repair',
+    'Screen Replacement',
+    'RAM & SSD Upgrade',
     'Data Recovery',
-    'RAM & SSD Upgrade'
   ];
 
   return (
-    <footer className="bg-[#071426] text-white">
+    <footer className="bg-[#101b35] text-white">
 
-      {/* MAIN FOOTER */}
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Main Footer */}
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1fr_1fr] lg:gap-10">
 
-        {/* BUSINESS DETAILS */}
+        {/* Brand */}
         <div>
-          <Link to="/" className="mb-6 inline-flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">
-              <Laptop size={27} />
+          <Link to="/" className="inline-flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-[#101b35]">
+              <Laptop size={26} />
             </div>
 
             <div>
-              <h2 className="text-lg font-extrabold">ELITE</h2>
-              <p className="text-[10px] font-bold tracking-[2px] text-slate-400">
-                COMPUTER SYSTEMS
+              <p className="text-xl font-bold tracking-tight">
+                ELITE
+              </p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                Computer Systems
               </p>
             </div>
           </Link>
 
-          <p className="max-w-xs text-sm leading-7 text-slate-400">
-            Laptop and computer repair services, hardware upgrades
-            and technical support for your devices.
+          <p className="mt-7 max-w-sm text-sm leading-7 text-slate-400">
+            Computer and laptop repair services, hardware
+            troubleshooting and technical support in Hinjawadi,
+            Pune.
           </p>
 
-          <div className="mt-6 flex gap-3">
-            <a
-              href="https://wa.me/919158617272"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Chat on WhatsApp"
-              className="rounded-xl bg-white/10 p-3 text-green-400 transition hover:bg-green-500 hover:text-white"
-            >
-              <MessageCircle size={20} />
-            </a>
-
-            <a
-              href="tel:+919158617272"
-              aria-label="Call Elite Computer Systems"
-              className="rounded-xl bg-white/10 p-3 text-blue-400 transition hover:bg-blue-600 hover:text-white"
-            >
-              <Phone size={20} />
-            </a>
-          </div>
+          <a
+            href="https://wa.me/919158617272"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-7 inline-flex items-center gap-3 rounded-full bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+          >
+            <MessageCircle size={17} />
+            WhatsApp us
+            <ArrowUpRight size={15} />
+          </a>
         </div>
 
-        {/* QUICK LINKS */}
+        {/* Quick Links */}
         <div>
-          <h3 className="mb-6 text-lg font-bold">Quick Links</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.15em]">
+            Quick links
+          </h3>
 
-          <ul className="space-y-4">
-            {quickLinks.map((link) => (
-              <li key={link.path}>
+          <ul className="mt-7 space-y-4">
+            <li>
+              <Link to="/" className="text-sm text-slate-400 transition hover:text-white">
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/about" className="text-sm text-slate-400 transition hover:text-white">
+                About us
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/services" className="text-sm text-slate-400 transition hover:text-white">
+                Our services
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/contact" className="text-sm text-slate-400 transition hover:text-white">
+                Contact us
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Services */}
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.15em]">
+            Our services
+          </h3>
+
+          <ul className="mt-7 space-y-4">
+            {services.map((service) => (
+              <li key={service}>
                 <Link
-                  to={link.path}
-                  className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-blue-400"
+                  to="/services"
+                  className="text-sm text-slate-400 transition hover:text-white"
                 >
-                  <ArrowUpRight size={15} />
-                  {link.name}
+                  {service}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* SERVICES */}
+        {/* Contact */}
         <div>
-          <h3 className="mb-6 text-lg font-bold">Our Services</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.15em]">
+            Contact details
+          </h3>
 
-          <ul className="space-y-4">
-            {services.map((service) => (
-              <li
-                key={service}
-                className="text-sm text-slate-400 transition hover:text-blue-400"
-              >
-                {service}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* CONTACT DETAILS */}
-        <div>
-          <h3 className="mb-6 text-lg font-bold">Contact Information</h3>
-
-          <div className="space-y-5">
+          <div className="mt-7 space-y-6">
 
             <a
               href="tel:+919158617272"
               className="flex items-start gap-3 text-sm text-slate-400 transition hover:text-white"
             >
-              <Phone size={19} className="shrink-0 text-blue-400" />
+              <Phone size={18} className="mt-0.5 shrink-0 text-blue-400" />
               +91 91586 17272
             </a>
 
@@ -128,43 +135,46 @@ function Footer() {
               href="mailto:nilesh@elitecomputer.in"
               className="flex items-start gap-3 break-all text-sm text-slate-400 transition hover:text-white"
             >
-              <Mail size={19} className="shrink-0 text-blue-400" />
+              <Mail size={18} className="mt-0.5 shrink-0 text-blue-400" />
               nilesh@elitecomputer.in
             </a>
 
-            <div className="flex items-start gap-3 text-sm leading-6 text-slate-400">
-              <MapPin size={20} className="shrink-0 text-blue-400" />
-              <span>
-                Shop No. 1, Hinjawadi Phase 1 Road,
-                Pune, Maharashtra 411057
-              </span>
-            </div>
-
-            <div className="flex items-start gap-3 text-sm text-slate-400">
-              <Clock size={19} className="shrink-0 text-blue-400" />
-              <span>
-                Monday – Saturday
-                <br />
-                10:00 AM – 8:30 PM
-              </span>
-            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Elite+Computer+Systems+Hinjawadi+Pune"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-start gap-3 text-sm leading-7 text-slate-400 transition hover:text-white"
+            >
+              <MapPin size={18} className="mt-1 shrink-0 text-blue-400" />
+              Hinjawadi Phase 1, Pune, Maharashtra 411057
+            </a>
 
           </div>
         </div>
 
       </div>
 
-      {/* BOTTOM FOOTER */}
+      {/* Bottom Footer */}
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-6 py-6 text-center sm:flex-row sm:text-left">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-6 py-7 text-sm text-slate-500 md:flex-row md:items-center">
 
-          <p className="text-sm text-slate-400">
+          <p>
             © {currentYear} Elite Computer Systems. All rights reserved.
           </p>
 
-          <p className="text-sm text-slate-400">
-            Professional Computer Repair & Technical Services.
-          </p>
+          <div className="flex flex-wrap gap-6">
+            <Link to="/" className="transition hover:text-white">
+              Home
+            </Link>
+
+            <Link to="/services" className="transition hover:text-white">
+              Services
+            </Link>
+
+            <Link to="/contact" className="transition hover:text-white">
+              Contact
+            </Link>
+          </div>
 
         </div>
       </div>
